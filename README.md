@@ -1,4 +1,4 @@
-# Airbrake Deploy Buildkite Plugin [![Build status]()](https://buildkite.com/seedrs/airbrake-deploy-buildkite-plugin)
+# Airbrake Deploy Buildkite Plugin [![Build status](https://badge.buildkite.com/ee6b340d59c88537178d0d9489d038aba1a7a2a4e98af1d937.svg)](https://buildkite.com/seedrs/airbrake-deploy-notification-buildkite-plugin)
 
 A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) for for sending deploy notifications to [Airbrake](https://airbrake.io/).
 
