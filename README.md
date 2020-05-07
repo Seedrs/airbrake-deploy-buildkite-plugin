@@ -6,7 +6,7 @@ A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) for for sendin
 
 ```yml
 steps:
-  - label: ":rocket: Aribrake Deploy"
+  - label: ":rocket: Airbrake Deploy"
     plugins:
       - seedrs/airbrake-deploy#v0.0.1:
           environment: production
