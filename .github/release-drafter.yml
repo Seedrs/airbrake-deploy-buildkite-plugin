@@ -1,0 +1,15 @@
+# Config for https://github.com/apps/release-drafter
+template: |
+  ## What's changed?
+
+  $CHANGES
+
+  ## Upgrading
+  To upgrade, update your `pipeline.yml` files:
+
+  ```diff
+    steps:
+      - plugins:
+  -       - seedrs/airbrake-deploy#$PREVIOUS_TAG:
+  +       - seedrs/airbrake-deploy#TODO:
+  ```

@@ -1,0 +1,14 @@
+name: Airbrake Deploy
+description: Sends a Airbrake Deploy Notification
+author: https://github.com/seedrs
+requirements:
+  - curl
+configuration:
+  properties:
+    projectKey:
+      type: string
+    projectId:
+      type: string
+    environment:
+      type: string
+

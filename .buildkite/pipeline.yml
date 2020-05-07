@@ -1,0 +1,7 @@
+steps:
+  - label: ":docker: :hammer:"
+    plugins:
+      docker-compose#v3.3.0:
+        run: tests
+    agents:
+      queue: seedrs-platform-staging

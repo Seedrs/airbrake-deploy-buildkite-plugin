@@ -1,0 +1,35 @@
+#!/bin/bash
+set -euo pipefail
+
+# Parameters from the plugin yml definition
+readonly PROJECT_KEY=${BUILDKITE_PLUGIN_AIRBRAKE_DEPLOY_PROJECT_KEY}
+readonly PROJECT_ID=${BUILDKITE_PLUGIN_AIRBRAKE_DEPLOY_PROJECT_ID}
+readonly ENVIRONMENT=${BUILDKITE_PLUGIN_AIRBRAKE_DEPLOY_ENVIRONMENT}
+
+# Other parameters
+readonly SHORT_COMMIT=${SHORT_COMMIT:-7}
+
+#######################################
+# Sends a notification with the commit
+# message of what was deployed
+# Globals:
+#   BUILDKITE_COMMIT
+#   BUILDKITE_BUILD_CREATOR
+#   BUILDKITE_BUILD_CREATOR_EMAIL
+#   BUILDKITE_REPO
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+function main() {
+  # Buildkite variables string modifications
+  BUILDKITE_COMMIT=$(echo "${BUILDKITE_COMMIT:0:${SHORT_COMMIT}}")
+  BUILDKITE_BUILD_CREATOR=$(echo "${BUILDKITE_BUILD_CREATOR}")
+  BUILDKITE_BUILD_CREATOR_EMAIL=$(echo "${BUILDKITE_BUILD_CREATOR_EMAIL}")
+  BUILDKITE_REPO=$(echo "${BUILDKITE_REPO}")
+
+  curl --silent -X POST -H "Content-Type: application/json" -d '{"environment": "'"${ENVIRONMENT}"'", "username": "'"${BUILDKITE_BUILD_CREATOR}"'", "email": "'"${BUILDKITE_BUILD_CREATOR_EMAIL}"'", "repository": "'"${BUILDKITE_REPO}"'", "revision": "'"${BUILDKITE_COMMIT}"'"}' "https://api.airbrake.io/api/v4/projects/${PROJECT_ID}/deploys?key=${PROJECT_KEY}"
+}
+
+main "$@"
