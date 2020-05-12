@@ -8,7 +8,7 @@ A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) for for sendin
 steps:
   - label: ":rocket: Airbrake Deploy"
     plugins:
-      - seedrs/airbrake-deploy#v0.0.1:
+      - seedrs/airbrake-deploy#v0.0.2:
           environment: production
           project_key: abc123123
           project_id: 1231
