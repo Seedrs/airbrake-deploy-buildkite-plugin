@@ -22,11 +22,11 @@ steps:
 
 The environment name
 
-### `project_key`
+### `project_key` (optional if AIRBRAKE_PROJECT_KEY env var is defined)
 
 Airbrake project key
 
-### `project_id`
+### `project_id` (optional if AIRBRAKE_PROJECT_ID env var is defined)
 
 Airbrake project id
 
